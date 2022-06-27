@@ -1,0 +1,10 @@
+prepare:
+  number: 20
+  seed: 6666
+
+train:
+  epoch: 6
+
+evaluate:
+  number: 3
+  seed: 3226
