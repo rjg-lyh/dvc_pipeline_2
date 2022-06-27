@@ -18,4 +18,9 @@ with open(path_in, 'r') as f:
 
 new = random.sample(model, number)
 result = sum(new)/sum(model)
-print("Result: ",result)
+#print("Result: ",result)
+
+path_out = os.path.join('data','Result')
+with open(path_out, 'w') as f:
+    f.write(str(result))
+print("pipeline is all done successfully")

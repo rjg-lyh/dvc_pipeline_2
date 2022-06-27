@@ -1,0 +1,30 @@
+stages:
+  prepare:
+    cmd: python prepare.py dataset
+    deps:
+    - data/dataset
+    - prepare.py
+    params:
+    - prepare.number
+    - prepare.seed
+    outs:
+    - data/prepared
+  train:
+    cmd: python train.py prepared
+    deps:
+    - data/prepared
+    - train.py
+    params:
+    - train.epoch
+    outs:
+    - data/model
+  evaluate:
+    cmd: python evaluate.py model
+    deps:
+    - data/model
+    - evaluate.py
+    params:
+    - evaluate.seed
+    - evaluate.number
+    outs:
+    - data/Result

@@ -1,0 +1,35 @@
+schema: '2.0'
+stages:
+  prepare:
+    cmd: python prepare.py dataset
+    deps:
+    - path: data/dataset
+      md5: 5d634700c6211755a05f842011801338
+      size: 141
+    - path: prepare.py
+      md5: eb866503c3256521731c06da4f696884
+      size: 637
+    params:
+      params.yaml:
+        prepare.number: 20
+        prepare.seed: 6666
+    outs:
+    - path: data/prepared
+      md5: 3c14bb5b5412bc76afe9b4d440253ad4
+      size: 56
+  train:
+    cmd: python train.py prepared
+    deps:
+    - path: data/prepared
+      md5: 3c14bb5b5412bc76afe9b4d440253ad4
+      size: 56
+    - path: train.py
+      md5: ee2d39a0b037011c5e8e315e60efa0f9
+      size: 797
+    params:
+      params.yaml:
+        train.epoch: 6
+    outs:
+    - path: data/model
+      md5: 18d7a3c7e088aeffd91f30c449970604
+      size: 412
