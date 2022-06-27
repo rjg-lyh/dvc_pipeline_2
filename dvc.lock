@@ -33,3 +33,20 @@ stages:
     - path: data/model
       md5: 18d7a3c7e088aeffd91f30c449970604
       size: 412
+  evaluate:
+    cmd: python evaluate.py model
+    deps:
+    - path: data/model
+      md5: 18d7a3c7e088aeffd91f30c449970604
+      size: 412
+    - path: evaluate.py
+      md5: a0d3ebc9b3bb662204d179734087fa65
+      size: 611
+    params:
+      params.yaml:
+        evaluate.number: 3
+        evaluate.seed: 3226
+    outs:
+    - path: data/Result
+      md5: 8fa4f5c8834f8592603fc9c5484d4a5a
+      size: 19
